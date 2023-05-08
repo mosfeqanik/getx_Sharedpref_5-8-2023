@@ -9,19 +9,23 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('HomeView'),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Obx(() {
-            return Text(
-              'HomeView is working Clicks: ${controller.count}',
-              style: TextStyle(fontSize: 20),
-            );
+      appBar: AppBar(
+        title: const Text('HomeView'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Obx(() {
+          return Text(
+            'UserName: ${controller.username}',
+            style: TextStyle(fontSize: 20),
+          );
+        }),
+      ),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            controller.SetUserName();
           }),
-        ),
-        floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add), onPressed: controller.increment));
+    );
   }
 }
